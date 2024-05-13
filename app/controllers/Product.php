@@ -55,4 +55,24 @@ class Product extends Controller {
             exit;
         }
     }
+
+    public function update() {
+        if($this->model("Product_model")->updateProduct($_POST) > 0) {
+            Flaser::setFlasher("Berhasil diubah", "success");
+            header("Location:" . BASE_URL . "product");
+            exit;
+        } else {
+            Flaser::setFlasher("Gagal diubah", "danger");
+            header("Location:" . BASE_URL . "product");
+            exit;
+        }
+    }
+
+    public function edit($id) {
+        $data["title"] = "Product Edit";
+        $data["product"] = $this->model("Product_model")->getProduct($id);
+        $this->view("templates/header", $data);
+        $this->view("product/edit", $data);
+        $this->view("templates/footer");
+    }
 }

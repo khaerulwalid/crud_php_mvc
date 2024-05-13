@@ -23,6 +23,8 @@
                                 <a href="<?= BASE_URL ?>product/detail/<?= $product->id ?>" class="badge bg-primary">detail</a>
 
                                 <a href="<?= BASE_URL ?>product/delete/<?= $product->id ?>" class="badge bg-danger" onclick="return confirm('Yakin mau dihapus ?')">delete</a>
+
+                                <a href="<?= BASE_URL ?>product/edit/<?= $product->id ?>" class="badge bg-warning">edit</a>
                             </div>
                         </li>
             <?php $no++; endforeach; ?>

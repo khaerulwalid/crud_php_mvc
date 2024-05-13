@@ -45,6 +45,20 @@ class Product_model {
         return $this->db->rowCount();
     }
 
+    public function updateProduct($data) {
+        $this->db->query("UPDATE product SET name=:name, description=:description, price=:price, qty=:qty WHERE id=:id");
+
+        $this->db->bind("name", $data["name"]);
+        $this->db->bind("description", $data["description"]);
+        $this->db->bind("price", $data["price"]);
+        $this->db->bind("qty", $data["qty"]);
+        $this->db->bind("id", $data["id"]);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function deleteProduct($id) {
         $this->db->query("DELETE FROM product WHERE id = :id");
 
