@@ -2,6 +2,12 @@
     <h1>Create Product</h1>
 
     <div class="row">
+        <div class="col-lg-6">
+            <?php Flaser::flashArray() ?>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-6">
             <form action="<?= BASE_URL ?>product/posting" method="post">
                 <div class="form-group mb-2">

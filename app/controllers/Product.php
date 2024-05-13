@@ -33,6 +33,14 @@ class Product extends Controller {
     }
 
     public function posting() {
+        $validationCheck = Validation::validation($_POST);
+    
+        if(!empty($validationCheck)) {
+            Flaser::setFlasher($validationCheck, "danger");
+            header("Location:" . BASE_URL . "product/create");
+            exit;
+        }
+
         if($this->model("Product_model")->createProduct($_POST) > 0) {
             Flaser::setFlasher("Berhasil ditambahkan", "success");
             header("Location:" . BASE_URL . "product");
