@@ -44,4 +44,14 @@ class Product_model {
 
         return $this->db->rowCount();
     }
+
+    public function deleteProduct($id) {
+        $this->db->query("DELETE FROM product WHERE id = :id");
+
+        $this->db->bind("id", $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

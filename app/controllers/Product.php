@@ -43,4 +43,16 @@ class Product extends Controller {
             exit;
         }
     }
+
+    public function delete($id) {
+        if($this->model("Product_model")->deleteProduct($id) > 0) {
+            Flaser::setFlasher("Berhasil dihapus", "success");
+            header("Location:" . BASE_URL . "product");
+            exit;
+        } else {
+            Flaser::setFlasher("Gagal dihapus", "danger");
+            header("Location:" . BASE_URL . "product");
+            exit;
+        }
+    }
 }

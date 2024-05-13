@@ -19,7 +19,11 @@
                 <?php foreach ($data["product"] as $product) : ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <?= $product->name ?>
-                            <a href="<?= BASE_URL ?>product/detail/<?= $product->id ?>" class="badge badge-primary bg-primary">detail</a>
+                            <div class="d-flex justify-content-between align-items-center gap-2">
+                                <a href="<?= BASE_URL ?>product/detail/<?= $product->id ?>" class="badge bg-primary">detail</a>
+
+                                <a href="<?= BASE_URL ?>product/delete/<?= $product->id ?>" class="badge bg-danger" onclick="return confirm('Yakin mau dihapus ?')">delete</a>
+                            </div>
                         </li>
             <?php $no++; endforeach; ?>
     
