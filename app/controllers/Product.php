@@ -34,6 +34,11 @@ class Product extends Controller {
 
     public function posting() {
         if($this->model("Product_model")->createProduct($_POST) > 0) {
+            Flaser::setFlasher("Berhasil ditambahkan", "success");
+            header("Location:" . BASE_URL . "product");
+            exit;
+        } else {
+            Flaser::setFlasher("Gagal ditambahkan", "danger");
             header("Location:" . BASE_URL . "product");
             exit;
         }

@@ -1,6 +1,13 @@
 <div class="container mt-4">
     <h1>Data Product</h1>
     <!-- Button trigger modal -->
+
+    <div class="row">
+        <div class="col-lg-6">
+            <?php Flaser::flash() ?>
+        </div>
+    </div>
+
     <a href="<?= BASE_URL ?>product/create"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
         Input data
     </button></a>
